@@ -1,3 +1,4 @@
+/** @type {Employee[]} */
 const employees = [
   { id: 1, name: "Carolynn McGinlay" },
   { id: 2, name: "Lodovico Filon" },
@@ -11,5 +12,19 @@ const employees = [
   { id: 10, name: "Gwen Grollmann" },
 ];
 
-/* WARNING: this must remain the default export in order for the tests to work! */
+export function addEmployee(name) {
+  const employee = { id: employees.length + 1, name };
+  employees.push(employee);
+  return employee;
+}
+
+export function getEmployeeById(id) {
+  return employees.find((e) => e.id === id);
+}
+
+export function getRandomEmployee() {
+  const randomIndex = Math.floor(Math.random() * employees.length);
+  return employees[randomIndex];
+}
+
 export default employees;
